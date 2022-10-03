@@ -1,8 +1,10 @@
 package com.example.demo.domain;
+import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
-
 public class ArticleComment {
+
+    @Id
     private Long id;
     private Article acticle;
     private String content;

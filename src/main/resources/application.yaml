@@ -1,0 +1,34 @@
+server.port : 8080
+debug: false
+management.endpoints.web.exposure.include: '*'
+
+logging:
+  level:
+    com.example.demo: debug
+    org.springframework.web.servlet: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/board
+    username: root
+    password: sjaks778
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:h2:mem:testdb
+#    username: sa
+#    driver-class-name: org.h2.Driver
+
+  jpa:
+    defer-datasource-initialization: true
+    hibernate.ddl-auto: create
+    show-sql: true
+    properties:
+      hibername.format.sql: true
+      hibername.default_batch_fetch_size: 100
+  h2.console.enabled: false
+  sql.init.mode: always
+  data.rest:
+    base-path: /api
+    detection-strategy: annotated # 사용가능한 strategy  -> spring data rest documentation 검색해서 dettection strategy 확인 (전략임)
+    # annotated 로 지정한 api 만 노출시키겠다는 뜻.
